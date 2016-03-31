@@ -1,4 +1,4 @@
-name: Jenkins
+name: Jenkins 2
 description: |
   Jenkins CI server (LTS)
 version: 2.0-beta-1-rancher1
