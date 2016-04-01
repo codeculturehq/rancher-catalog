@@ -23,6 +23,8 @@
         ldap
         role-strategy
         docker-plugin
+        next-build-number
+        simple-theme-plugin
 jenkins-primary:
   metadata:
     plugins: |
