@@ -13,17 +13,18 @@
       default: |
         credentials
         greenballs
-        git
         junit
-        git-client
-        github-api
-        github-oauth
-        github
         plain-credentials
         scm-api
         ssh-credentials
         ssh-slaves
         swarm
+        slack
+        ldap
+        role-strategy
+        docker-plugin
+        next-build-number
+        simple-theme-plugin
 jenkins-primary:
   metadata:
     plugins: |
