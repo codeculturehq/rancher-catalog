@@ -7,7 +7,7 @@ jenkins-primary:
     io.rancher.container.hostname_override: container_name
   volumes_from:
     - jenkins-plugins
-    - jenkins:/var/jenkins_home
+    - /jenkins:/var/jenkins_home
   volume-driver: convoy-gluster
   entrypoint: /usr/share/jenkins/rancher/jenkins.sh
 jenkins-plugins:
