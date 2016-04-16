@@ -15,7 +15,7 @@ jenkins-datavolume:
   image: "busybox"
   volumes:
     - jenkins:/var/jenkins_home
-  volume_driver: convoy
+  volume_driver: convoy-gluster
   labels:
     io.rancher.container.start_once: true
   entrypoint: ["chown", "-R", "1000:1000", "/var/jenkins_home"]
