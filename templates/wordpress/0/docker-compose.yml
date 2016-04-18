@@ -5,7 +5,7 @@ wordpress:
   ports:
     - 80:80
   volumes:
-    - jenkins:/var/www/html
+    - wordpress:/var/www/html
   volume_driver: convoy-gluster
 
 db:
