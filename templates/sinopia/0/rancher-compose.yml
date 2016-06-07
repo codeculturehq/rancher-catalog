@@ -5,13 +5,13 @@
   uuid: Sinopia-0
   minimum_rancher_version: v0.51.0
   questions:
-    - variable: "CONFIG"
+    - variable: "VOLUMNE"
       type: "string"
-      label: "Config File"
+      label: "VOLUMNE"
       required: true
       description: |
-                Path to the config file
-      default: "/opt/sinopia/config"
+                Path to the Volumne file
+      default: "/opt/sinopia"
     - variable: "PORT"
       type: "int"
       required: true

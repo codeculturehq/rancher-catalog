@@ -3,4 +3,4 @@ sinopia:
   - ${PORT}:4873
   image: keyvanfatehi/sinopia:latest
   volumes:
-  - ${CONFIG}:/opt/sinopia/config.yaml
+  - ${CONFIG}:/opt/sinopia
