@@ -3,4 +3,6 @@ sinopia:
   - ${PORT}:4873
   image: keyvanfatehi/sinopia:latest
   volumes:
-  - ${VOLUMNE}:/opt/sinopia
+  - ${VOLUMNE}/config.yaml:/opt/sinopia/config.yaml
+  - ${VOLUMNE}/htpasswd:/opt/sinopia/htpasswd
+  - ${VOLUMNE}/storage:/opt/sinopia/storage
