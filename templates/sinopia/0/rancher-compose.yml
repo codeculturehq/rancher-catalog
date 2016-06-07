@@ -1,0 +1,24 @@
+.catalog:
+  name: "Sinopia"
+  version: "v0.1"
+  description: ""
+  uuid: Sinopia-0
+  minimum_rancher_version: v0.51.0
+  questions:
+	- variable: "CONFIG"
+	    type: "string"
+	    label: "Config File"
+	    required: true
+	    description: |
+	        Path to the config file
+	    default: /opt/sinopia/config
+	- variable: "PORT"
+	    type: "int"
+	    required: true
+	    label: "Port"
+	    description: |
+	        Port on your Host System
+	    default: 4873
+
+
+Sinopia:
