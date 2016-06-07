@@ -1,9 +1,6 @@
-Sinopia:
+sinopia:
   ports:
   - ${PORT}:4873
-  labels:
-    io.rancher.container.pull_image: always
-  tty: true
   image: keyvanfatehi/sinopia:latest
   volumes:
   - ${CONFIG}:/opt/sinopia/config.yaml
