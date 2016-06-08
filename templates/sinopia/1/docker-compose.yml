@@ -1,7 +1,7 @@
 sinopia:
   ports:
   - ${PORT}:4873
-  image: keyvanfatehi/sinopia:latest
+  image: therightplace/verdaccio:latest
   volumes:
   - ${VOLUMNE}/config.yaml:/verdaccio/conf
   - ${VOLUMNE}/htpasswd:/verdaccio/htpasswd
