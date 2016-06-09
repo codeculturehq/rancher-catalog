@@ -5,27 +5,27 @@
   uuid: Stackstorm-0
   minimum_rancher_version: v0.51.0
   questions:
-    - variable: "Mongo Username"
+    - variable: "STACKSTORM_USER"
       type: "string"
-      label: "STACKSTORM_USER"
+      label: "Mongo Username"
       required: true
       description: |
                 MongoDB Username
-    - variable: "Mongo Password"
+    - variable: "STACKSTORM_PW"
       type: "string"
-      label: "STACKSTORM_PW"
+      label: "Mongo Password"
       required: true
       description: |
                 MongoDB Password
-    - variable: "rabbitmq Username"
+    - variable: "STACKSTORM_RMQ_USER"
       type: "string"
-      label: "STACKSTORM_RMQ_USER"
+      label: "rabbitmq Username"
       required: true
       description: |
                 rabbitmq Username
-    - variable: "rabbitmq Password"
+    - variable: "STACKSTORM_RMQ_PW"
       type: "string"
-      label: "STACKSTORM_RMQ_PW"
+      label: "rabbitmq Password"
       required: true
       description: |
                 rabbitmq Password
