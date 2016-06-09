@@ -29,6 +29,12 @@
       required: true
       description: |
                 rabbitmq Password
+    - variable: "STACKSTORM_WEB_URI"
+      type: "string"
+      label: "web uri"
+      required: true
+      description: |
+                needed for CORS
     - variable: "PORT"
       type: "int"
       required: true

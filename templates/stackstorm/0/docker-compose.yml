@@ -12,6 +12,7 @@
       - "ST2_RMQ_PASS=${STACKSTORM_RMQ_PW}"
       - "ST2_API_URL=http://api:9101"
       - "ST2_AUTH_URL=http://auth:9100"
+      - "ST2_WEB_URL=${STACKSTORM_WEB_URI}"
       - "ST2_DEBUG=True"
     labels:
       - "com.stackstorm.service.provides=api"
@@ -38,6 +39,7 @@
       - "ST2_RMQ_PASS=${STACKSTORM_RMQ_PW}"
       - "ST2_API_URL=http://api:9101"
       - "ST2_AUTH_URL=http://auth:9100"
+      - "ST2_WEB_URL=${STACKSTORM_WEB_URI}"
       - "ST2_DEBUG=True"
     labels:
       - "com.stackstorm.service.provides=actionrunner"
@@ -60,6 +62,7 @@
       - "ST2_RMQ_PASS=${STACKSTORM_RMQ_PW}"
       - "ST2_API_URL=http://api:9101"
       - "ST2_AUTH_URL=http://auth:9100"
+      - "ST2_WEB_URL=${STACKSTORM_WEB_URI}"
       - "ST2_AUTH=True"
     labels:
       - "com.stackstorm.service.provides=auth"
@@ -85,6 +88,7 @@
       - "ST2_RMQ_PASS=${STACKSTORM_RMQ_PW}"
       - "ST2_API_URL=http://api:9101"
       - "ST2_AUTH_URL=http://auth:9100"
+      - "ST2_WEB_URL=${STACKSTORM_WEB_URI}"
       - "ST2_DEBUG=True"
     labels:
       - "com.stackstorm.service.provides=notifier"
@@ -107,6 +111,7 @@
       - "ST2_RMQ_PASS=${STACKSTORM_RMQ_PW}"
       - "ST2_API_URL=http://api:9101"
       - "ST2_AUTH_URL=http://auth:9100"
+      - "ST2_WEB_URL=${STACKSTORM_WEB_URI}"
       - "ST2_DEBUG=True"
     labels:
       - "com.stackstorm.service.provides=resultstracker"
@@ -129,6 +134,7 @@
       - "ST2_RMQ_PASS=${STACKSTORM_RMQ_PW}"
       - "ST2_API_URL=http://api:9101"
       - "ST2_AUTH_URL=http://auth:9100"
+      - "ST2_WEB_URL=${STACKSTORM_WEB_URI}"
       - "ST2_DEBUG=True"
     labels:
       - "com.stackstorm.service.provides=rulesengine"
@@ -147,6 +153,7 @@
       - "${PORT}:80"
     links:
       - "api"
+      - "auth"
 
   rabbitmq:
     image: rabbitmq:management
