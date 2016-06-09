@@ -1,0 +1,167 @@
+  api:
+    image: svenbcc/stackstorm
+    environment:
+      - "ST2_SERVICE=st2api"
+      - "ST2_DB_HOST=mongodb"
+      - "ST2_DB_NAME=stackstorm-db"
+      - "ST2_DB_USERNAME=${STACKSTORM_USER}"
+      - "ST2_DB_PASSWORD=${STACKSTORM_PW}"
+      - "ST2_RMQ_HOST=rabbitmq"
+      - "ST2_RMQ_PORT=5672"
+      - "ST2_RMQ_USER=${STACKSTORM_RMQ_USER}"
+      - "ST2_RMQ_PASS=${STACKSTORM_RMQ_PW}"
+      - "ST2_API_URL=http://api:9101"
+      - "ST2_AUTH_URL=http://auth:9100"
+      - "ST2_DEBUG=True"
+    labels:
+      - "com.stackstorm.service.provides=api"
+    depends_on:
+      - "mongodb"
+      - "rabbitmq"
+      - "auth"
+    expose:
+      - "9101"
+    ports:
+     - "9101:9101"
+
+  action:
+    image: svenbcc/stackstorm
+    environment:
+      - "ST2_SERVICE=st2actionrunner"
+      - "ST2_DB_HOST=mongodb"
+      - "ST2_DB_NAME=stackstorm-db"
+      - "ST2_DB_USERNAME=${STACKSTORM_USER}"
+      - "ST2_DB_PASSWORD=${STACKSTORM_PW}"
+      - "ST2_RMQ_HOST=rabbitmq"
+      - "ST2_RMQ_PORT=5672"
+      - "ST2_RMQ_USER=${STACKSTORM_RMQ_USER}"
+      - "ST2_RMQ_PASS=${STACKSTORM_RMQ_PW}"
+      - "ST2_API_URL=http://api:9101"
+      - "ST2_AUTH_URL=http://auth:9100"
+      - "ST2_DEBUG=True"
+    labels:
+      - "com.stackstorm.service.provides=actionrunner"
+    depends_on:
+      - "mongodb"
+      - "rabbitmq"
+      - "api"
+
+  auth:
+    image: svenbcc/stackstorm
+    environment:
+      - "ST2_SERVICE=st2auth"
+      - "ST2_DB_HOST=mongodb"
+      - "ST2_DB_NAME=stackstorm-db"
+      - "ST2_DB_USERNAME=${STACKSTORM_USER}"
+      - "ST2_DB_PASSWORD=${STACKSTORM_PW}"
+      - "ST2_RMQ_HOST=rabbitmq"
+      - "ST2_RMQ_PORT=5672"
+      - "ST2_RMQ_USER=${STACKSTORM_RMQ_USER}"
+      - "ST2_RMQ_PASS=${STACKSTORM_RMQ_PW}"
+      - "ST2_API_URL=http://api:9101"
+      - "ST2_AUTH_URL=http://auth:9100"
+      - "ST2_AUTH=True"
+    labels:
+      - "com.stackstorm.service.provides=auth"
+    depends_on:
+      - "mongodb"
+      - "rabbitmq"
+    expose:
+      - "9100"
+    ports:
+      - "9100:9100"
+
+  notifier:
+    image: svenbcc/stackstorm
+    environment:
+      - "ST2_SERVICE=st2notifier"
+      - "ST2_DB_HOST=mongodb"
+      - "ST2_DB_NAME=stackstorm-db"
+      - "ST2_DB_USERNAME=${STACKSTORM_USER}"
+      - "ST2_DB_PASSWORD=${STACKSTORM_PW}"
+      - "ST2_RMQ_HOST=rabbitmq"
+      - "ST2_RMQ_PORT=5672"
+      - "ST2_RMQ_USER=${STACKSTORM_RMQ_USER}"
+      - "ST2_RMQ_PASS=${STACKSTORM_RMQ_PW}"
+      - "ST2_API_URL=http://api:9101"
+      - "ST2_AUTH_URL=http://auth:9100"
+      - "ST2_DEBUG=True"
+    labels:
+      - "com.stackstorm.service.provides=notifier"
+    depends_on:
+      - "mongodb"
+      - "rabbitmq"
+      - "api"
+
+  results:
+    image: svenbcc/stackstorm
+    environment:
+      - "ST2_SERVICE=st2resultstracker"
+      - "ST2_DB_HOST=mongodb"
+      - "ST2_DB_NAME=stackstorm-db"
+      - "ST2_DB_USERNAME=${STACKSTORM_USER}"
+      - "ST2_DB_PASSWORD=${STACKSTORM_PW}"
+      - "ST2_RMQ_HOST=rabbitmq"
+      - "ST2_RMQ_PORT=5672"
+      - "ST2_RMQ_USER=${STACKSTORM_RMQ_USER}"
+      - "ST2_RMQ_PASS=${STACKSTORM_RMQ_PW}"
+      - "ST2_API_URL=http://api:9101"
+      - "ST2_AUTH_URL=http://auth:9100"
+      - "ST2_DEBUG=True"
+    labels:
+      - "com.stackstorm.service.provides=resultstracker"
+    depends_on:
+      - "mongodb"
+      - "rabbitmq"
+      - "api"
+
+  rules:
+    image: svenbcc/stackstorm
+    environment:
+      - "ST2_SERVICE=st2rulesengine"
+      - "ST2_DB_HOST=mongodb"
+      - "ST2_DB_NAME=stackstorm-db"
+      - "ST2_DB_USERNAME=${STACKSTORM_USER}"
+      - "ST2_DB_PASSWORD=${STACKSTORM_PW}"
+      - "ST2_RMQ_HOST=rabbitmq"
+      - "ST2_RMQ_PORT=5672"
+      - "ST2_RMQ_USER=${STACKSTORM_RMQ_USER}"
+      - "ST2_RMQ_PASS=${STACKSTORM_RMQ_PW}"
+      - "ST2_API_URL=http://api:9101"
+      - "ST2_AUTH_URL=http://auth:9100"
+      - "ST2_DEBUG=True"
+    labels:
+      - "com.stackstorm.service.provides=rulesengine"
+    depends_on:
+      - "mongodb"
+      - "rabbitmq"
+      - "api"
+
+  web:
+    image: svenbcc/stackstorm
+    environment:
+      - "ST2_SERVICE=st2web"
+      - "ST2_API_URL=http://api:9101"
+      - "ST2_AUTH_URL=http://auth:9100"
+    ports:
+      - "${PORT}:80"
+    depends_on:
+      - "api"
+
+  rabbitmq:
+    image: rabbitmq:management
+    environment:
+      - "RABBITMQ_DEFAULT_USER=${STACKSTORM_RMQ_USER}"
+      - "RABBITMQ_DEFAULT_PASS=${STACKSTORM_RMQ_PW}"
+    hostname: rabbitmq
+    expose:
+     - "5672"
+
+  mongodb:
+    image: tutum/mongodb
+    environment:
+      - "MONGODB_USER=${STACKSTORM_USER}"
+      - "MONGODB_PASS=${STACKSTORM_PW}"
+      - "MONGODB_DATABASE=stackstorm-db"
+    expose:
+     - "27017"

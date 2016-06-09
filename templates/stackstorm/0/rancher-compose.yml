@@ -1,0 +1,38 @@
+.catalog:
+  name: "Stackstorm"
+  version: "v0.1"
+  description: ""
+  uuid: Stackstorm-0
+  minimum_rancher_version: v0.51.0
+  questions:
+    - variable: "Mongo Username"
+      type: "string"
+      label: "STACKSTORM_USER"
+      required: true
+      description: |
+                MongoDB Username
+    - variable: "Mongo Password"
+      type: "string"
+      label: "STACKSTORM_PW"
+      required: true
+      description: |
+                MongoDB Password
+    - variable: "rabbitmq Username"
+      type: "string"
+      label: "STACKSTORM_RMQ_USER"
+      required: true
+      description: |
+                rabbitmq Username
+    - variable: "rabbitmq Password"
+      type: "string"
+      label: "STACKSTORM_RMQ_PW"
+      required: true
+      description: |
+                rabbitmq Password
+    - variable: "PORT"
+      type: "int"
+      required: true
+      label: "Port"
+      description: |
+                Port on your Host System
+      default: 28080
