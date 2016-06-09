@@ -1,5 +1,5 @@
   api:
-    image: svenbcc/stackstorm
+    image: svenbcc/stackstorm:1.4.0-8
     environment:
       - "ST2_SERVICE=st2api"
       - "ST2_DB_HOST=mongodb"
