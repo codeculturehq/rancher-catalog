@@ -1,5 +1,5 @@
   api:
-    image: svenbcc/stackstorm:v1.4.0-8
+    image: svenbcc/stackstorm:v1.4.0-8-1
     environment:
       - "ST2_SERVICE=st2api"
       - "ST2_DB_HOST=mongodb"
@@ -26,7 +26,7 @@
      - "9101:9101"
 
   action:
-    image: svenbcc/stackstorm:v1.4.0-8
+    image: svenbcc/stackstorm:v1.4.0-8-1
     environment:
       - "ST2_SERVICE=st2actionrunner"
       - "ST2_DB_HOST=mongodb"
@@ -49,7 +49,7 @@
       - "api"
 
   auth:
-    image: svenbcc/stackstorm:v1.4.0-8
+    image: svenbcc/stackstorm:v1.4.0-8-1
     environment:
       - "ST2_SERVICE=st2auth"
       - "ST2_DB_HOST=mongodb"
@@ -75,7 +75,7 @@
       - "9100:9100"
 
   notifier:
-    image: svenbcc/stackstorm:v1.4.0-8
+    image: svenbcc/stackstorm:v1.4.0-8-1
     environment:
       - "ST2_SERVICE=st2notifier"
       - "ST2_DB_HOST=mongodb"
@@ -98,7 +98,7 @@
       - "api"
 
   results:
-    image: svenbcc/stackstorm:v1.4.0-8
+    image: svenbcc/stackstorm:v1.4.0-8-1
     environment:
       - "ST2_SERVICE=st2resultstracker"
       - "ST2_DB_HOST=mongodb"
@@ -121,7 +121,7 @@
       - "api"
 
   rules:
-    image: svenbcc/stackstorm:v1.4.0-8
+    image: svenbcc/stackstorm:v1.4.0-8-1
     environment:
       - "ST2_SERVICE=st2rulesengine"
       - "ST2_DB_HOST=mongodb"
@@ -144,11 +144,11 @@
       - "api"
 
   web:
-    image: svenbcc/stackstorm:v1.4.0-8
+    image: svenbcc/stackstorm:v1.4.0-8-1
     environment:
       - "ST2_SERVICE=st2web"
       - "ST2_API_URL=http://api:9101"
-      - "ST2_AUTH_URL=http://auth:9100"
+      - "ST2_AUTH_URL=http://${STACKSTORM_AUTH_URL}:9100"
     ports:
       - "${PORT}:80"
     links:

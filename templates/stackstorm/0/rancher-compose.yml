@@ -35,6 +35,12 @@
       required: true
       description: |
                 needed for CORS
+    - variable: "STACKSTORM_AUTH_URL"
+      type: "string"
+      label: "external auth uri"
+      required: true
+      description: |
+                needed for CORS
     - variable: "PORT"
       type: "int"
       required: true
