@@ -15,7 +15,7 @@
       - "ST2_DEBUG=True"
     labels:
       - "com.stackstorm.service.provides=api"
-    link:
+    links:
       - "mongodb"
       - "rabbitmq"
       - "auth"
@@ -41,7 +41,7 @@
       - "ST2_DEBUG=True"
     labels:
       - "com.stackstorm.service.provides=actionrunner"
-    link:
+    links:
       - "mongodb"
       - "rabbitmq"
       - "api"
@@ -63,7 +63,7 @@
       - "ST2_AUTH=True"
     labels:
       - "com.stackstorm.service.provides=auth"
-    link:
+    links:
       - "mongodb"
       - "rabbitmq"
     expose:
@@ -88,7 +88,7 @@
       - "ST2_DEBUG=True"
     labels:
       - "com.stackstorm.service.provides=notifier"
-    link:
+    links:
       - "mongodb"
       - "rabbitmq"
       - "api"
@@ -110,7 +110,7 @@
       - "ST2_DEBUG=True"
     labels:
       - "com.stackstorm.service.provides=resultstracker"
-    link:
+    links:
       - "mongodb"
       - "rabbitmq"
       - "api"
@@ -132,7 +132,7 @@
       - "ST2_DEBUG=True"
     labels:
       - "com.stackstorm.service.provides=rulesengine"
-    link:
+    links:
       - "mongodb"
       - "rabbitmq"
       - "api"
@@ -145,7 +145,7 @@
       - "ST2_AUTH_URL=http://auth:9100"
     ports:
       - "${PORT}:80"
-    link:
+    links:
       - "api"
 
   rabbitmq:
