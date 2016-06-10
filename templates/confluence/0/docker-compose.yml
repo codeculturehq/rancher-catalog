@@ -1,9 +1,10 @@
 confluence:
   ports:
   - ${PORT}:8090
-  image: svenbcc/confluence:9.5.7
+  image: cptactionhank/atlassian-confluence:5.9.12
   volumes:
-    - ${CONFLUENCE_DATA_PATH}:/opt/atlassian-home
+    - ${CONFLUENCE_DATA_PATH}:/var/atlassian/confluence
+    - ${CONFLUENCE_LOG_PATH}:/opt/atlassian/confluence/logs
   links:
   	- "postgres"
 postgres:

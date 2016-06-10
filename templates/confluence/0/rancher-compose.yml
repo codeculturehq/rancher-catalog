@@ -25,6 +25,13 @@
       description: |
                 Path to save Confluence Data      
       default: /opt/confluence/data   
+    - variable: "CONFLUENCE_LOG_PATH"
+      type: "string"
+      label: "Confluence Log Path"
+      required: true
+      description: |
+                Path to save Confluence Logs      
+      default: /opt/confluence/log   
     - variable: "PGSQLPORT"
       type: "int"
       required: true
