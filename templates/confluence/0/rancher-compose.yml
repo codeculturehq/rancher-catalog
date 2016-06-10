@@ -1,0 +1,41 @@
+.catalog:
+  name: "Confluence"
+  version: "v0.1"
+  description: ""
+  uuid: Confluence-0
+  minimum_rancher_version: v0.51.0
+  questions:
+    - variable: "PGSQL_PASSWORD"
+      type: "string"
+      label: "PGSQL Passwort"
+      required: true
+      description: |
+                Passwort für den Confluence User
+    - variable: "PGSQL_DATA_PATH"
+      type: "string"
+      label: "PGSQL Data Path"
+      required: true
+      description: |
+                Path to save PGSQL Data
+      default: /opt/confluence/sql_data
+    - variable: "CONFLUENCE_DATA_PATH"
+      type: "string"
+      label: "Confluence Data Path"
+      required: true
+      description: |
+                Path to save Confluence Data      
+      default: /opt/confluence/data   
+    - variable: "PGSQLPORT"
+      type: "int"
+      required: true
+      label: "Port"
+      description: |
+                Port on your Host System
+      default: 5432
+    - variable: "PORT"
+      type: "int"
+      required: true
+      label: "Port"
+      description: |
+                Port for web
+      default: 8090

@@ -1,0 +1,17 @@
+confluence:
+  ports:
+  - ${PORT}:8090
+  image: svenbcc/confluence:9.5.7
+  volumes:
+    - ${CONFLUENCE_DATA_PATH}:/opt/atlassian-home
+  links:
+  	- "postgres"
+postgres:
+  ports:
+    - ${PGSQLPORT}:5432
+  image: postgres:9.5.3
+  volumes:
+    - ${PGSQL_DATA_PATH}:/var/lib/postgresql/data
+  environment:
+    - "POSTGRES_USER=confluence"
+    - "POSTGRES_PASSWORD=${PGSQL_PASSWORD}"
