@@ -6,7 +6,7 @@ confluence:
     - ${CONFLUENCE_DATA_PATH}:/var/atlassian/confluence
     - ${CONFLUENCE_LOG_PATH}:/opt/atlassian/confluence/logs
   links:
-  	- "postgres"
+    - "postgres"
 postgres:
   ports:
     - ${PGSQLPORT}:5432
