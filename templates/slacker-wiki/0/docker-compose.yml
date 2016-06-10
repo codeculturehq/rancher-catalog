@@ -1,0 +1,7 @@
+slackerwiki:
+  ports:
+  - ${PORT}:8080
+  image: svenbcc/slacker-wiki
+  environment:
+    - "URL=${SLACKER_URL}"
+    - "AUTH=${SLACKER_AUTH}"

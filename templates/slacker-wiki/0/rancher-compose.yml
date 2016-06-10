@@ -1,0 +1,30 @@
+.catalog:
+  name: "Slacker-Wiki"
+  version: "v0.1"
+  description: ""
+  uuid: Slacker-Wiki-0
+  minimum_rancher_version: v0.51.0
+  questions:
+    - variable: "SLACKER_URL"
+      type: "string"
+      label: "Url"
+      required: true
+      description: |
+                URL of the Wiki
+    - variable: "SLACKER_AUTH"
+      type: "string"
+      label: "Auth"
+      required: true
+      description: |
+                Auth for the Wiki 
+                (echo "admin:secretpass" | base64)
+    - variable: "PORT"
+      type: "int"
+      required: true
+      label: "Port"
+      description: |
+                Port on your Host System
+      default: 4873
+
+
+sinopia:

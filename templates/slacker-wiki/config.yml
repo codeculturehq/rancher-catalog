@@ -1,0 +1,5 @@
+name: Slacker Wiki
+description: |
+  Interface for Slack to a Confluence wiki
+version: v0.1
+category: Chat
