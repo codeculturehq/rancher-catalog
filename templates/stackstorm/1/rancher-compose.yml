@@ -1,0 +1,64 @@
+.catalog:
+  name: "Stackstorm"
+  version: "v0.2"
+  description: ""
+  uuid: Stackstorm-0
+  minimum_rancher_version: v0.51.0
+  questions:
+    - variable: "STACKSTORM_USER"
+      type: "string"
+      label: "Mongo Username"
+      required: true
+      description: |
+                MongoDB Username
+    - variable: "STACKSTORM_PW"
+      type: "string"
+      label: "Mongo Password"
+      required: true
+      description: |
+                MongoDB Password
+    - variable: "STACKSTORM_RMQ_USER"
+      type: "string"
+      label: "rabbitmq Username"
+      required: true
+      description: |
+                rabbitmq Username
+    - variable: "STACKSTORM_RMQ_PW"
+      type: "string"
+      label: "rabbitmq Password"
+      required: true
+      description: |
+                rabbitmq Password
+    - variable: "STACKSTORM_WEB_URI"
+      type: "string"
+      label: "web uri"
+      required: true
+      description: |
+                needed for CORS
+    - variable: "STACKSTORM_CONFIG_DIR"
+      type: "string"
+      label: "config dir"
+      required: true
+      description: |
+                dir for the conf files
+      default: /opt/stackstorm/conf
+    - variable: "STACKSTORM_DATA_DIR"
+      type: "string"
+      label: "data dir"
+      required: true
+      description: |
+                dir for the data
+      default: /opt/stackstorm/data
+    - variable: "STACKSTORM_AUTH_URL"
+      type: "string"
+      label: "external auth uri"
+      required: true
+      description: |
+                needed for CORS
+    - variable: "PORT"
+      type: "int"
+      required: true
+      label: "Port"
+      description: |
+                Port on your Host System
+      default: 28080
