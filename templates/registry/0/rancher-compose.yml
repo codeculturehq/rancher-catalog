@@ -19,3 +19,9 @@
       description: |
                 Port for web
       default: 5000
+    - variable: "CERT"
+      type: "certificate"
+      label: "Certificate"
+      required: true
+      description: |
+                Your Certificate
