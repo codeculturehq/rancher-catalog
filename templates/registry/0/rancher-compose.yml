@@ -24,4 +24,10 @@
       label: "Certificate"
       required: true
       description: |
-                Your Certificate
+                Your LetsEncrypt Certificate
+    - variable: "LETS_ENCRYPT_CERT_DIR"
+      type: "string"
+      label: "LetsEncrypt Cert Dir"
+      required: true
+      description: |
+                The directory where LetsEncrypt saves its certificates

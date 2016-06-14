@@ -4,9 +4,12 @@ registry:
   ports:
     - ${PORT}:5000
   environment:
+    REGISTRY_HTTP_TLS_CERTIFICATE: /certs/fullchain.pem
+    REGISTRY_HTTP_TLS_KEY: /certs/privkey.pem
     REGISTRY_AUTH: htpasswd
     REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
     REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
   volumes:
     - ${PATH}/data:/var/lib/registry
     - ${PATH}/auth:/auth
+    - ${LETS_ENCRYPT_CERT_DIR}/${CERT}:/certs
