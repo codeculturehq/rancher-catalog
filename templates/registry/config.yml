@@ -1,0 +1,5 @@
+name: Docker Registry
+description: |
+  Docker Registry
+version: v0.1
+category: Registry

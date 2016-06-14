@@ -1,0 +1,21 @@
+.catalog:
+  name: "Registry"
+  version: "v0.1"
+  description: ""
+  uuid: Registry-0
+  minimum_rancher_version: v0.51.0
+  questions:
+    - variable: "PATH"
+      type: "string"
+      label: "Data Path"
+      required: true
+      description: |
+                Path for your data + configs      
+      default: /opt/registry   
+    - variable: "PORT"
+      type: "int"
+      required: true
+      label: "Port"
+      description: |
+                Port for web
+      default: 5000
