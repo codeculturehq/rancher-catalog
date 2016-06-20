@@ -1,0 +1,7 @@
+phantomjs-php:
+  restart: always
+  image: registry.codeculture.de/codeculture/alpine-php-phantomjs
+  ports:
+    - ${PORT}:5000
+  volumes:
+    - ${PATH}:/app

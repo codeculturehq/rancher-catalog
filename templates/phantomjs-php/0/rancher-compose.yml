@@ -1,0 +1,21 @@
+.catalog:
+  name: "Phantomjs-PHP"
+  version: "v0.1"
+  description: ""
+  uuid: Phantomjs-PHP-0
+  minimum_rancher_version: v0.51.0
+  questions:
+    - variable: "PATH"
+      type: "string"
+      label: "Data Path"
+      required: true
+      description: |
+                Path for your 
+      default: /opt/phantomjs_php   
+    - variable: "PORT"
+      type: "int"
+      required: true
+      label: "Port"
+      description: |
+                Port for web
+      default: 30001
